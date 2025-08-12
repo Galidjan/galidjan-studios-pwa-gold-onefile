@@ -6,7 +6,6 @@
   "display": "standalone",
   "background_color": "#0A0A0A",
   "theme_color": "#0A0A0A",
-  "description": "The official Galidjan Studios PWA.",
   "icons": [
     {
       "src": "assets/icons/icon-192.png",

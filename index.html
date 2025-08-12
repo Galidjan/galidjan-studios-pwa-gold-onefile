@@ -1,109 +1,86 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Galidjan Studios</title>
-  <meta name="theme-color" content="#0A0A0A" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="assets/icons/icon-192.png" type="image/png" />
-  <style>
-    :root{--bg:#0A0A0A;--panel:#101010;--border:#202020;--fg:#EDEDED;--muted:#9AA0A6;--gold:#C6A15B}
-    *{box-sizing:border-box}html,body{height:100%}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial}
-    #bg-grid{position:fixed;inset:0;background:
-      radial-gradient(60vw 60vh at 10% -10%, rgba(198,161,91,.12), transparent 60%),
-      radial-gradient(60vw 60vh at 110% 110%, rgba(198,161,91,.08), transparent 60%),
-      linear-gradient(transparent 0, transparent calc(100% - 100px), rgba(198,161,91,.06) 100%);
-      pointer-events:none;z-index:-1;animation:pulse 8s ease-in-out infinite}
-    @keyframes pulse{0%,100%{opacity:.8}50%{opacity:1}}
-    .topbar{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;
-      padding:14px 18px;background:rgba(10,10,10,.8);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.3px}
-    .logo{width:30px;height:30px;border:2px solid var(--gold);border-radius:8px;display:inline-grid;place-items:center;font-weight:800;color:var(--gold)}
-    .nav a{color:var(--muted);text-decoration:none;margin:0 6px;padding:8px 10px;border-radius:8px}
-    .nav a.active,.nav a:hover{color:var(--fg);background:#171717}
-    .install{background:var(--gold);color:#0A0A0A;border:0;border-radius:10px;padding:10px 14px;font-weight:800}
-    #app{padding:22px}
-    .card{border:1px solid var(--border);background:var(--panel);border-radius:16px;padding:24px;max-width:1040px;margin:0 auto 22px;
-      box-shadow:0 10px 40px rgba(0,0,0,.35)}
-    .hero{text-align:center}
-    .badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.3px;margin-bottom:12px}
-    .lead{color:var(--muted);margin:8px 0 16px}
-    .gold{color:var(--gold)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
-    .tile{border:1px solid var(--border);background:#0f0f0f;border-radius:12px;padding:16px}
-    .view{display:none}.view.active{display:block}
-    .footer{opacity:.65;text-align:center;padding:18px;border-top:1px solid var(--border)}
-    .fade-in{animation:fade .6s ease both} @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galidjan Studios • Ultra Lite</title>
+<meta name="theme-color" content="#0A0A0A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon-192.png" type="image/png">
+<style>
+:root{--bg:#0A0A0A;--panel:#111;--border:#1f1f1f;--fg:#F2F2F2;--muted:#9aa0a6;--gold:#d7b46a}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,rgba(215,180,106,.08),transparent 60%),
+radial-gradient(1200px 600px at 120% 120%,rgba(215,180,106,.06),transparent 60%),#0A0A0A;color:var(--fg);
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial}
+header{position:sticky;top:0;z-index:10;background:rgba(5,5,5,.75);backdrop-filter:blur(10px);
+display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border)}
+.brand{display:flex;gap:10px;align-items:center}
+.logo{width:30px;height:30px;border-radius:8px;border:2px solid var(--gold);display:grid;place-items:center;color:var(--gold);font-weight:800}
+.nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+.nav a.active,.nav a:hover{color:var(--fg);background:#171717}
+.install{background:var(--gold);color:#0A0A0A;border:0;border-radius:10px;padding:10px 14px;font-weight:800}
+main{padding:22px}
+.card{border:1px solid var(--border);background:linear-gradient(180deg,#111,#0d0d0d);border-radius:16px;padding:24px;max-width:1040px;margin:0 auto 22px;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.3px;margin-bottom:12px}
+h1{font-size:32px;margin:8px 0 14px}
+.lead{color:var(--muted);margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
+.tile{border:1px solid var(--border);background:#0f0f0f;border-radius:12px;padding:16px;transition:transform .18s ease, box-shadow .18s ease}
+.tile:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(215,180,106,.12)}
+.footer{opacity:.65;text-align:center;padding:18px;border-top:1px solid var(--border)}
+.view{display:none}.view.active{display:block}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5}
+main,header{position:relative;z-index:1}
+.fade{animation:fade .5s ease both}@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+</style>
 </head>
 <body>
-  <div id="bg-grid"></div>
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo">GS</div>
-      <span>Galidjan <strong>Studios</strong></span>
-    </div>
-    <nav class="nav">
-      <a href="#home" data-view="home" class="active">Home</a>
-      <a href="#community" data-view="community">Community</a>
-      <a href="#livestreams" data-view="livestreams">Livestreams</a>
-      <a href="#admin" data-view="admin">Admin</a>
-    </nav>
-    <button id="installBtn" class="install" hidden>Install App</button>
-  </header>
-
-  <main id="app">
-    <section id="view-home" class="view active">
-      <div class="hero card fade-in">
-        <div class="badge">PWA • Installable</div>
-        <h1>Welcome to <span class="gold">Galidjan Studios</span></h1>
-        <p class="lead">A creator hub for filmmakers, writers & storytellers. Install to unlock a full‑screen, app‑like experience.</p>
-        <div class="grid">
-          <div class="tile"><h3>Scripts</h3><p>AI‑assisted outline → draft → polish.</p></div>
-          <div class="tile"><h3>Challenges</h3><p>Run contests, vote, climb leaderboards.</p></div>
-          <div class="tile"><h3>Podcast</h3><p>Record, publish and share episodes.</p></div>
-        </div>
+<canvas id="particles"></canvas>
+<header>
+  <div class="brand"><div class="logo">GS</div><strong>Galidjan Studios</strong></div>
+  <nav class="nav">
+    <a href="#home" data-view="home" class="active">Home</a>
+    <a href="#community" data-view="community">Community</a>
+    <a href="#livestreams" data-view="livestreams">Livestreams</a>
+    <a href="#admin" data-view="admin">Admin</a>
+  </nav>
+  <button id="installBtn" class="install" hidden>Install App</button>
+</header>
+<main>
+  <section id="view-home" class="view active">
+    <div class="card fade">
+      <div class="badge">PWA • Installable</div>
+      <h1>Welcome to <span style="color:var(--gold)">Galidjan Studios</span></h1>
+      <p class="lead">Cinematic gold, smooth animations and real interaction. Install for a full‑screen, app‑like experience.</p>
+      <div class="grid">
+        <div class="tile"><h3>Scripts</h3><p>AI‑assisted idea → outline → draft (demo).</p></div>
+        <div class="tile"><h3>Poster</h3><p>Upload photo → add title → save poster.</p></div>
+        <div class="tile"><h3>Notes</h3><p>Quick notes stored on your device.</p></div>
       </div>
-    </section>
-    <section id="view-community" class="view"><div class="card fade-in"><h2>Community</h2><p>Forums & networking for filmmakers, writers and actors.</p></div></section>
-    <section id="view-livestreams" class="view"><div class="card fade-in"><h2>Livestreams</h2><p>Go live, host Q&A’s, engage your audience in real time.</p></div></section>
-    <section id="view-admin" class="view"><div class="card fade-in"><h2>Admin</h2><p>Moderation tools, analytics and user management (coming soon).</p></div></section>
-  </main>
+    </div>
+  </section>
+  <section id="view-community" class="view"><div class="card fade"><h2>Community</h2><p>Mini‑feed (local demo). Post something and it stays on this device.</p></div></section>
+  <section id="view-livestreams" class="view"><div class="card fade"><h2>Livestreams</h2><p>Go live, host Q&A, engage your audience.</p></div></section>
+  <section id="view-admin" class="view"><div class="card fade"><h2>Admin</h2><p>Moderation tools, analytics and user management (coming soon).</p></div></section>
+</main>
+<footer class="footer">© <span id="year"></span> Galidjan Studios • Ultra Lite v4</footer>
+<script>
+// basic SPA
+const links=[...document.querySelectorAll('.nav [data-view]')], views=[...document.querySelectorAll('.view')];
+function show(id){links.forEach(l=>l.classList.toggle('active',l.dataset.view===id));views.forEach(v=>v.classList.toggle('active',v.id==='view-'+id));}
+links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.dataset.view;show(id);history.replaceState(null,'','#'+id)}));
+show(location.hash.replace('#','')||'home'); document.getElementById('year').textContent=new Date().getFullYear();
 
-  <footer class="footer">© <span id="year"></span> Galidjan Studios</footer>
+// particles
+const c=document.getElementById('particles'),ctx=c.getContext('2d');let w,h;function size(){w=c.width=innerWidth;h=c.height=innerHeight}size();addEventListener('resize',size);
+const P=Array.from({length:80},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5,r:Math.random()*1.8+0.4}));
+function tick(){ctx.clearRect(0,0,w,h);ctx.fillStyle='rgba(215,180,106,.7)';P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();});requestAnimationFrame(tick)}tick();
 
-  <script>
-    // SPA nav + footer year
-    const links = document.querySelectorAll('.nav [data-view]');
-    const views = document.querySelectorAll('.view');
-    links.forEach(a => a.addEventListener('click', e => {
-      e.preventDefault();
-      const id = a.getAttribute('data-view');
-      links.forEach(l => l.classList.toggle('active', l===a));
-      views.forEach(v => v.classList.toggle('active', v.id === 'view-'+id));
-      history.replaceState(null, '', '#'+id);
-    }));
-    const start = location.hash.replace('#','') || 'home';
-    document.querySelector(`[data-view="${start}"]`)?.click();
-    document.getElementById('year').textContent = new Date().getFullYear();
+// SW + install
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('service-worker.js'));}
+let deferred; const btn=document.getElementById('installBtn');
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;btn.hidden=false}); btn.addEventListener('click',async()=>{deferred?.prompt();await deferred?.userChoice;btn.hidden=true});
 
-    // SW + Install prompt
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => navigator.serviceWorker.register('service-worker.js'));
-    }
-    let deferredPrompt;
-    const installBtn = document.getElementById('installBtn');
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault(); deferredPrompt = e; installBtn.hidden = false;
-    });
-    installBtn.addEventListener('click', async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
-      deferredPrompt = null; installBtn.hidden = true;
-    });
-  </script>
-</body>
-</html>
+</script>
+</body></html>
